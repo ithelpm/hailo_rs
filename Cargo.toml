@@ -1,0 +1,19 @@
+[package]
+name = "hailo_rs"
+version = "0.1.0"
+edition = "2024"
+description = "Rust FFI bindings and device abstractions for the Hailo AI accelerator (HailoRT C API)."
+license = "MIT"
+
+[dependencies]
+libc = "0.2"
+
+[build-dependencies]
+bindgen = "0.72.1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
